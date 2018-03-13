@@ -22,7 +22,7 @@ input[type=button], input[type=submit], input[type=reset] {
  <form name="contact" onsubmit="return checkForm(this);">  
 	 <h1>JVC Transport</h1>
    <label>Center Name: </label>
-             <select name="centerName">
+             <select name="centerName" required>
                 <option value="blankfield">N/A</option>
                     <option value="Clearlake">Clearlake</option>
                     <option value="HQ">HQ</option>
@@ -34,13 +34,13 @@ input[type=button], input[type=submit], input[type=reset] {
         
         <p>
             <label>Bus/Shuttle Number</label>
-            <input type="text" name="shuttleBusNumber">
+            <input type="text" name="shuttleBusNumber" required>
 
 
 
          <p>
             <label>Cluster: </label>
-             <select name="routeName">
+             <select name="routeName" required>
                     <option value="Venue to JK">Venue to JK</option>
                     <option value="Jk to Hotel">Jk to Hotel</option>
                     <option value="Hotel to Venue">Hotel to Venue</option>
@@ -51,17 +51,17 @@ input[type=button], input[type=submit], input[type=reset] {
         <!-- WORK ON THIS -->
         <p>
           <label>Phone Number: </label>
-          <input id="telNo" name="telNo" type="tel" placeholder="123-4567-8901">
+          <input id="telNo" name="telNo" type="tel" placeholder="123-4567-8901" required>
           <br><br>
 
         </p>
 
 	<label>First Name</label>
-          <input name="firstName" type="text" placeholder="First Name">  
+          <input name="firstName" type="text" placeholder="First Name" required>  
           <br><br>
 
 	<label>Last Name</label>
-          <input name="lastName" type="text" placeholder="Last Name"> 
+          <input name="lastName" type="text" placeholder="Last Name" required> 
           <br><br>
 
 
@@ -69,7 +69,7 @@ input[type=button], input[type=submit], input[type=reset] {
 
                 <p>
             <label>Expected number of passengers: </label>
-            <input type="number" name="expectedNumOfPassengers" min="1" max="200"></input> 
+            <input type="number" name="expectedNumOfPassengers" min="1" max="200" required></input> 
         <br><br>
         </p>
 
@@ -77,7 +77,7 @@ input[type=button], input[type=submit], input[type=reset] {
 
                 <p>
             <label>Actual number of passengers: </label>
-            <input type="number" name="actualNumofPassengersPicked" min="1" max="200"></input> 
+            <input type="number" name="actualNumofPassengersPicked" min="1" max="200" required></input> 
         <br><br>
         </p>
 
@@ -111,7 +111,7 @@ input[type=button], input[type=submit], input[type=reset] {
 
         <p>
             <label>Emergency Type: </label>
-             <select name="emergencyType">
+             <select name="emergencyType" required>
                 <option value="Tire Problem">Heavy Traffic</option>
                     <option value="Medical">Medical - Passenger</option>
                     <option value="Engine Failure">Vehicle Breakdown</option>
