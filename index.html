@@ -10,6 +10,7 @@
 <body>
  <form name="contact">  
 	 <h1>JVC Transport</h1>
+	 <button>Click me to hide headers</button>
    <label>Center Name: </label>
              <select name="centerName">
                 <option value="blankfield">N/A</option>
@@ -154,7 +155,11 @@
     .catch(error => console.error('Error!', error.message))  
   });
 
-	 
+	$(document).ready(function(){
+    $("button").click(function(){
+        $("h1").hide();
+    });
+}); 
 
 	 
 
