@@ -145,14 +145,14 @@
  <button type="submit" id="submit" onClick="submitForm()">Send</button>  
  </form>
  <script>  
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbztsqREP30w-R9oO00ofXHhh8kO9gnGAF8V6QXmEOtUIlGLuZ92/exec'  
-  const form = document.forms['contact']  
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbztsqREP30w-R9oO00ofXHhh8kO9gnGAF8V6QXmEOtUIlGLuZ92/exec'  ;
+  const form = document.forms['contact'] ; 
   form.addEventListener('submit', e => {  
    e.preventDefault()  
    fetch(scriptURL, { method: 'POST', body: new FormData(form)})  
     .then(response => console.log('Success!', response))  
     .catch(error => console.error('Error!', error.message))  
-  })  
+  });
 
   function submitForm() {
    var frm = document.getElementsByName('contact')[0];
