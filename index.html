@@ -4,10 +4,12 @@
 	<title>Testing</title>
 </head>
 <body>
- <form name="contact">  
+<form name="submit-to-google-sheet">  
   <input name="email" type="email" placeholder="Email" required>  
+  <input name="firstName" type="text" placeholder="First Name">  
+  <input name="lastName" type="text" placeholder="Last Name">  
   <button type="submit">Send</button>  
- </form>  
+ </form> 
  <script>  
   const scriptURL = 'https://script.google.com/macros/s/AKfycbztsqREP30w-R9oO00ofXHhh8kO9gnGAF8V6QXmEOtUIlGLuZ92/exec'  
   const form = document.forms['contact']  
