@@ -141,8 +141,9 @@
 
 
 
- <!-- <button type="submit">Send</button> -->  
- <button type="submit" id="submit" class="submit">Send</button>  
+  <button type="submit">Send</button> 
+ <input type="button" onclick="myFunction()" value="Reset form">
+  
  </form>
  <script>  
   const scriptURL = 'https://script.google.com/macros/s/AKfycbztsqREP30w-R9oO00ofXHhh8kO9gnGAF8V6QXmEOtUIlGLuZ92/exec'  ;
@@ -154,10 +155,9 @@
     .catch(error => console.error('Error!', error.message))  
   });
 
-$('.submit').on('click', function(){
-    reset();
-    console.log("debug");
-});
+function myFunction() {
+    document.getElementById("contact").reset();
+}
 
  </script>  
 </body>
