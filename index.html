@@ -151,6 +151,19 @@
     .catch(error => console.error('Error!', error.message))  
   });
 
+	 
+	 $.ajax({
+    url: ".....",
+    dataType: "json",
+    type: "GET",
+        cache: false,
+    contentType: "application/json",
+        success: function (data, textStatus) {
+            console.log("RECV: " + data);
+        }
+    });
+	 
+	 
 $(document).ready(function(){
     $("button").click(function(){
         $("h1").hide();
