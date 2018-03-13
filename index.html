@@ -5,14 +5,97 @@
 </head>
 <body>
  <form name="contact">  
-  <input name="email" type="email" placeholder="Email" required>
-  <br><br>
-  <input name="firstName" type="text" placeholder="First Name">  
-  <br><br>
-  <input name="lastName" type="text" placeholder="Last Name"> 
-  <br><br>
+  
+   <label>Center Name: </label>
+             <select name="centerName">
+                <option value="blankfield">N/A</option>
+                    <option value="Clearlake">Clearlake</option>
+                    <option value="HQ">HQ</option>
+                    <option value="Katy">KATY</option>
+            </select>
+        <br><br>
+        </p>
+
+        
+        <p>
+            <label>Bus/Shuttle Number</label>
+            <input type="text" name="shuttleBusNumber">
+
+
+
+         <p>
+            <label>Cluster: </label>
+             <select name="routeName">
+                    <option value="Venue to JK">Venue to JK</option>
+                    <option value="Jk to Hotel">Jk to Hotel</option>
+                    <option value="Hotel to Venue">Hotel to Venue</option>
+            </select>
+        <br><br>
+        
+
+        <!-- WORK ON THIS -->
+        <p>
+          <label>Phone Number: </label>
+          <input id="telNo" name="telNo" type="tel" placeholder="123-4567-8901">
+          <br><br>
+
+        </p>
+
+
+          <input name="firstName" type="text" placeholder="First Name">  
+          <br><br>
+
+
+          <input name="lastName" type="text" placeholder="Last Name"> 
+          <br><br>
+
+
+
+
+                <p>
+            <label>Expected number of passengers: </label>
+            <input type="number" name="expectedNumOfPassengers" min="1" max="200"></input> 
+        <br><br>
+        </p>
+
+
+
+                <p>
+            <label>Actual number of passengers: </label>
+            <input type="number" name="actualNumofPassengersPicked" min="1" max="200"></input> 
+        <br><br>
+        </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
   <button type="submit">Send</button>  
- </form> 
+ </form>
  <script>  
   const scriptURL = 'https://script.google.com/macros/s/AKfycbztsqREP30w-R9oO00ofXHhh8kO9gnGAF8V6QXmEOtUIlGLuZ92/exec'  
   const form = document.forms['contact']  
