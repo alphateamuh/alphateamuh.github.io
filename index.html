@@ -3,6 +3,7 @@
 		<title>Testing</title>
 	</head>
 <body>
+<base target="_top">
 <form id="test-form">
   
   <div>
@@ -30,12 +31,31 @@
   </div>
 
 </form>
-<script
-  src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
-<script>
+<script src=”https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  
+  <script>
+
 var $form = $('form#test-form'),
     url = 'https://script.google.com/macros/s/abcdefghijklmnopqrstuvwxyz1234567890/exec'
 
+$.fn.serializeObject = function()
+{
+ var o = {};
+ var a = this.serializeArray();
+ $.each(a, function() {
+ if (o[this.name]) {
+ if (!o[this.name].push) {
+ o[this.name] = [o[this.name]];
+ }
+ o[this.name].push(this.value || ‘’);
+ } else {
+ o[this.name] = this.value || ‘’;
+ }
+ });
+ return o;
+};	
+	
 $('#submit-form').on('click', function(e) {
   e.preventDefault();
   var jqxhr = $.ajax({
@@ -50,3 +70,4 @@ $('#submit-form').on('click', function(e) {
 </script>
 </body>
 </html>
+
