@@ -2,10 +2,6 @@
 <html>
 <head>
 	<title>BUS/SHUTTLE INFORMATION</title>
-   <script
-        src="https://code.jquery.com/jquery-2.2.4.js"
-        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-        crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -15,11 +11,11 @@
 
 
 
- <form name="contact" onsubmit="return checkForm(this);">  
+ <form name="contact" id="contactForm" method="resetForm()"> 
       <div class="mx-auto">
       <nav class="navbar navbar-light bg-light">
           <a class="navbar-brand mx-auto" href="../githubproject/test.html" width="200px;">
-              <img src="..\images\diamondjubilee.png" width="40" height="40" class="d-inline-block align-top" alt="">
+              <img src="..\githubproject\images\diamondjubilee.png" width="40" height="40" class="d-inline-block align-top" alt="">
           </a>
       </nav>
   </div>
@@ -104,7 +100,7 @@
 -->
 <div class="form-group">
   <label>Vehicle Type</label>
-<select id="choice_criteria_id" name="vehicleType" class="form-control" onchange="showHide()" required>
+<select id="choice_criteria_id" name="vehicleType" class="form-control" onchange="test()" required>
 <option id="optbusValue" value="" selected></option>
             <option value="RN">RN</option>
             <option value="PV">PV</option>
@@ -114,7 +110,7 @@
 </select>
 </div>
 
-<div class="form-group">
+<div class="form-group" id="hotelDiv">
 <select id="id_src_addr" value="id_src_addr" class="form-control" hidden>
 <option value="H.uk.1.1" selected></option>
 <option valu="H.uk.1.1">H.uk.1.1</option>
@@ -149,22 +145,9 @@
 <option valu="H.iah.1.2">H.iah.1.2</option>
 <option valu="H.eh.1.1">H.eh.1.1</option>
 </select>
-</div>
 
 
 
-
-
-
-
-<div class="form-group" id="divBusNumber">
-
-  <label>Bus Number</label>
-  <input type="number" class="form-control" name="busNumber"> 
-
-
-</div>
-<div class="form-group" id="cluster">
   <label>Cluster Type: (Only Applicable for Hotel Shuttle)</label>
   <select id="choice_criteria_id" class="form-control" name="clusterType">
             <option value=""></option>
@@ -180,7 +163,34 @@
             <option value="IAH">IAH</option>
             <option value="E Houston">E Houston</option>
 </select>
+
+
+
+   <label>Origination</label>
+  <input name="origination" type="text" placeholder="Origination" class="form-control" >
+  <br>
+
+
+   <label>Destination</label>
+  <input name="destination" type="text" placeholder="Destination" class="form-control" >
+  <br>
+
 </div>
+
+
+
+
+
+
+
+<div class="form-group" id="divBusNumber">
+
+  <label>Bus Number</label>
+  <input type="number" class="form-control" name="busNumber"> 
+
+
+</div>
+
 
 
 
@@ -240,21 +250,11 @@ function showHide() {
 
 
 
-  <div class="form-group" id="originationType">
-   <label>Origination</label>
-  <input name="origination" type="text" placeholder="Origination" class="form-control" >
-  <br>
-  </div>
 
-    <div class="form-group" id="destinationType">
-   <label>Destination</label>
-  <input name="destination" type="text" placeholder="Destination" class="form-control" >
-  <br>
-  </div>
   
      <div class="form-group">
    <label># of Jamati Members Picked Up</label>
-  <input name="numOfMembersPickedUp" type="number" placeholder="" required>
+  <input name="numOfMembersPickedUp" type="number" placeholder="Enter the message recieved on Zello" class="form-control" required>
   <br>
   </div>
 
@@ -285,12 +285,12 @@ function showHide() {
 
 
    
-    <div class="form-group" id="hideTime"> 
-      <label>Load Time (Only Applicable to JK Shuttle - Leave blank if not applicable)</label>
-      <input name="loadTime" type="time"  class="form-control">
+    <div class="form-group" id="jkDiv"> 
+      <label>Load Time</label>
+      <input name="loadTime" type="text"  class="form-control">
 
-      <label>Unload Time (Only Applicable to JK Shuttle - Leave blank if not applicable)</label>
-    <input name="unLoadTime" type="time"  class="form-control">
+      <label>Unload Time</label>
+    <input name="unLoadTime" type="text"  class="form-control">
     <br>
   </div>
 
@@ -311,26 +311,26 @@ function showHide() {
 
 
 
-
+<div>
   <!-- <button type="submit" id="clickme">Send</button> -->
-  <input type="submit" name="myButton" value="Submit" class="btn btn-success">
+  <input type="submit" name="myButton" id="myButton" value="myButton" class="btn btn-success" onClick="this.disabled=true; this.value='Sending…';">
   
   <!--
   <input type="reset" value="Reset Button" onclick="resetForm(this.form);" class="btn btn-danger">
   -->
 
-  <input type="reset" value="Reset" class="btn btn-danger" onClick="window.location.reload()">
+ <input type="reset" value="Reset" id="reset" class="btn btn-danger" onClick= ""> 
    </div>
 
 </div>
  </form>  
 
-<script
-              src="https://code.jquery.com/jquery-2.2.4.js"
-              integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-              crossorigin="anonymous"></script>
+<script src="../public/jquery.js"></script>
 
-<script>  
+<script src="../public/dist/jquery.validate.js">
+</script>
+<script> 
+
   const scriptURL = 'https://script.google.com/macros/s/AKfycbxJaGEx7tXdUTh3H3yZeGsT417bQKtekoCeg__I-bAxv8pEpmeC/exec'  
   const form = document.forms['contact']  
   form.addEventListener('submit', e => {  
@@ -338,30 +338,90 @@ function showHide() {
    fetch(scriptURL, { method: 'POST', body: new FormData(form)})  
     .then(response => console.log('Success!', response))  
     .catch(error => console.error('Error!', error.message))  
-  })  
+  }) 
 
-  $( document ).ready(function() {
-    console.log( "ready!" );
-    document.getElementById("divBusNumber").style.display = "none";
 
+function test() {
+    //$('#hotelDiv').hide(); 
+    //$('#choice_criteria_id').change(function(){
+        if($('#choice_criteria_id').val() == 'source_ip') 
+        {
+            $('#hotelDiv').show(); 
+            $('#jkDiv').hide();
+            $('#divBusNumber').hide();
+        }
+        else if ($('#choice_criteria_id').val() == 'jk_shuttle')
+        {
+            $('#hotelDiv').hide(); 
+            $('#jkDiv').show();
+            $('#divBusNumber').show();
+        }
+        else //if ($('#choice_criteria_id').val() == 'RN' && $('#choice_criteria_id').val() == 'PV' && $('#choice_criteria_id').val() == 'ADA')
+        {
+          
+           $('#divBusNumber').show();
+          $('#hotelDiv').hide();
+          $('#jkDiv').hide();
+        }
+
+    //});
+}
+
+$("#reset").click(function(){
+  document.location.reload(true);
 });
 
-   function checkForm(form) // Submit button clicked
-  {
-    //
-    // check form input values
-    //
 
-    form.myButton.disabled = true;
-    form.myButton.value = "Submitted..Please press the reset button...";
-    return true;
-  }
+// $("#myform")[0].reset();
+// var validator = $("#contactForm").validate();
+// validator.resetForm();
 
-  function resetForm(form) // Reset button clicked
-  {
-    form.myButton.disabled = false;
-    form.myButton.value = "Submit";
-  }
+
+//   $( document ).ready(function() {
+//     console.log( "ready!" );
+
+//     //document.getElementById("divBusNumber").style.display = "none";
+    
+//   // if(selectedValue != "id_src_addr")
+//   //   document.getElementById("divBusNumber").style.display = "none";
+//   // else
+//   //   document.getElementById("divBusNumber").style.display = "block";
+
+//   //document.getElementByID("hideTime").style.display = (selectedValue != "jk_shuttle") ? "block" : "none"; 
+
+//   var x = document.getElementById("hideTime");
+//   if(selectedValue == "jk_shuttle")
+//   {
+//     if (x.style.display == "none") {
+//         x.style.display = "block";
+//     } else {
+//         x.style.display = "none";
+//     }
+// }
+// else
+// {
+//   x.style.display = "none";
+// }
+
+// });
+
+//    function checkForm(form) // Submit button clicked
+//   {
+//     //
+//     // check form input values
+//     //
+
+//     form.myButton.disabled = true;
+//     form.myButton.value = "Submitted..Please press the reset button...";
+//     return true;
+//   }
+
+//   function resetForm(form) // Reset button clicked
+//   {
+//     alert("Hi");
+//     form.myButton.disabled = false;
+//     form.myButton.value = "Submit";
+//   }
 
 // function showHideOptions(value)
 // {
@@ -383,60 +443,42 @@ function showHide() {
 
 
 
-// var start = 1;
-// var end = 100;
-// var options = "";
-// for(var year = start ; year <=end; year++){
-//   options += "<option>"+ year +"</option>";
-// }
-// document.getElementById("year").innerHTML = options;
-function showHide() {
-  var selectedValue = document.getElementById("choice_criteria_id").value;
-  console.log(selectedValue);
-  document.getElementById("id_src_addr").style.display = (selectedValue == "source_ip") ? "inline" : "none";
-  // if(selectedValue != "id_src_addr")
-  //   document.getElementById("divBusNumber").style.display = "none";
-  // else
-  //   document.getElementById("divBusNumber").style.display = "block";
 
-  document.getElementById("divBusNumber").style.display = (selectedValue != "source_ip") ? "inline" : "none";
-  document.getElementById("cluster").style.display = (selectedValue == "source_ip") ? "block" : "none";
-  document.getElementById("destinationType").style.display = (selectedValue == "source_ip") ? "block" : "none";
-  document.getElementById("originationType").style.display = (selectedValue == "source_ip") ? "block" : "none";
-  //document.getElementByID("hideTime").style.display = (selectedValue != "jk_shuttle") ? "block" : "none"; 
-
-  var x = document.getElementById("hideTime");
-  if(selectedValue == "jk_shuttle")
-  {
-    if (x.style.display == "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-else
-{
-  x.style.display = "none";
-}
-
-
-
-}
-
-
-
-
-
-// function showHideJkShuttle(){
-
-//   var selectedValue = document.getElementByID("choice_criteria_id").value;
+// function showHide() {
+// console.log("In showhide");
+//   var selectedValue = document.getElementById("choice_criteria_id").value;
 //   console.log(selectedValue);
-//   alert('Hello');
-//   document.getElementByID("loadHide").style.display = (selectedValue != "jk_shuttle") ? "block" : "none"; 
+//   document.getElementById("id_src_addr").style.display = (selectedValue == "source_ip") ? "inline" : "none";
+
+
+//   document.getElementById("divBusNumber").style.display = (selectedValue != "source_ip") ? "inline" : "none";
+//   document.getElementById("cluster").style.display = (selectedValue == "source_ip") ? "block" : "none";
+//   document.getElementById("destinationType").style.display = (selectedValue == "source_ip") ? "block" : "none";
+//   document.getElementById("originationType").style.display = (selectedValue == "source_ip") ? "block" : "none";
+//   //document.getElementByID("hideTime").style.display = (selectedValue != "jk_shuttle") ? "block" : "none"; 
+
+//   var x = document.getElementById("hideTime");
+//   if(selectedValue == "jk_shuttle")
+//   {
+//     if (x.style.display == "none") {
+//         x.style.display = "block";
+//     } else {
+//         x.style.display = "none";
+//     }
+// }
+// else
+// {
+//   x.style.display = "none";
+// }
 
 
 
 // }
+
+
+
+
+
 
 
 
