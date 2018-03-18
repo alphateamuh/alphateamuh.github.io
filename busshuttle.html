@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BUS/SHUTTLE INFORMATION</title>
+   <script
+        src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+        crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" type="text/css" href="..\githubproject\style2.css">
+</head>
+<body>
+
+
+
+ <form name="contact" onsubmit="return checkForm(this);">  
+      <div class="mx-auto">
+      <nav class="navbar navbar-light bg-light">
+          <a class="navbar-brand mx-auto" href="../githubproject/test.html" width="200px;">
+              <img src="..\githubproject\images\diamondjubilee.png" width="40" height="40" class="d-inline-block align-top" alt="">
+          </a>
+      </nav>
+  </div>
+    <div class="col-md-4 col-md-offset-4">
+
+
+        <div class="form-group"> 
+
+            <label>Session</label>
+            <select name="sessionType" class="form-control" required>
+            <option value="0"></option>  
+            <option value="AM Session">AM Session</option>
+            <option value="PM Session">PM Session</option>
+            <option value="Overflow Session">Overflow Session</option>
+
+            
+            </select>
+          
+
+        </div>
+
+
+
+
+
+
+
+<!-- WORK ON THIS - NEED JS 
+
+      <div class="form-group"> 
+
+            <label>Vehicle Type</label>
+            <select name="vehicleType" class="form-control" onclick='test()' required>
+            <option value="0"></option>  
+            <option value="RN">RN</option>
+            <option value="PV">PV</option>
+            <option value="Hotel Bus">Hotel BUS</option>
+            <option value="JK Shuttle">JK Shuttle</option>
+            <option value="ADA">ADA</option>
+            </select>
+            <br>
+       </div>
+
+        <div class="form-group">
+        <select id="extra" name="busNumber" class="form-control" style="display: none">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+        </select>
+        <br>
+      </div>
+
+    -->.
+  <!--
+    <div class="form-group">
+    <label>Vehicle Type </label>
+    <select id="test" name="form_select" onchange="showDiv(this)">
+            <option value="0" selected>N/A</option>  
+            <option value="RN">RN</option>
+            <option value="PV">PV</option>
+            <option value="Hotel Bus">Hotel BUS</option>
+            <option value="JK Shuttle">JK Shuttle</option>
+            <option value="ADA">ADA</option>
+    </select>
+    </div>
+
+    <div class="form-group">
+    <div id="hidden_div" style="display: none;">
+      <label>Bus Number</label>  
+      <select id="year" name="busNumber"></select>
+
+    </div>
+    <br>
+
+        <div class="form-group">
+    <div id="hidden_divPV" style="display: none;">
+      <label>Bus Number</label>  
+      <select id="year" name="busNumber"></select>
+
+    </div>
+    <br>
+-->
+<div class="form-group">
+  <label>Vehicle Type</label>
+<select id="choice_criteria_id" name="vehicleType" class="form-control" onchange="showHide()" required>
+<option id="optbusValue" value="" selected></option>
+            <option value="RN">RN</option>
+            <option value="PV">PV</option>
+            <option value="jk_shuttle">JK Shuttle</option>
+            <option value="ADA">ADA</option>
+            <option value="source_ip">Hotel Bus</option>
+</select>
+</div>
+
+<div class="form-group">
+<select id="id_src_addr" value="id_src_addr" class="form-control" hidden>
+<option value="H.uk.1.1" selected></option>
+<option valu="H.uk.1.1">H.uk.1.1</option>
+<option valu="H.uk.1.2">H.uk.1.2</option>
+<option valu="H.uk.1.3">H.uk.1.3</option>
+<option valu="H.uk.1.4">H.uk.1.4</option>
+<option valu="H.wc.1.1">H.wc.1.1</option>
+<option valu="H.wc.2.1">H.wc.2.1</option>
+<option valu="H.ec.1.1">H.ec.1.1</option>
+<option valu="H.ec.1.2">H.ec.1.2</option>
+<option valu="H.ec.1.3">H.ec.1.3</option>
+<option valu="H.ec.1.4">H.ec.1.4</option>
+<option valu="H.ec.1.5">H.ec.1.5</option>
+<option valu="H.sl.1.1">H.sl.1.1</option>
+<option valu="H.sl.2.1">H.sl.2.1</option>
+<option valu="H.sl.2.2">H.sl.2.2</option>
+<option valu="H.nh.1.1">H.nh.1.1</option>
+<option valu="H.nwh.1.1">H.nwh.1.1</option>
+<option valu="H.nwh.2.1">H.nwh.2.1</option>
+<option valu="H.nwh.2.2">H.nwh.2.2</option>
+<option valu="H.nwh.3.1">H.nwh.3.1</option>
+<option valu="H.nwh.3.2">H.nwh.3.2</option>
+<option valu="H.glr.1.1">H.glr.1.1</option>
+<option valu="H.glr.2.1">H.glr.2.1</option>
+<option valu="H.glr.2.2">H.glr.2.2</option>
+<option valu="H.glr.2.3">H.glr.2.3</option>
+<option valu="H.glr.3.1">H.glr.3.1</option>
+<option valu="H.glr.3.2">H.glr.3.2</option>
+<option valu="H.glr.4.1">H.glr.4.1</option>
+<option valu="H.glr.5.1">H.glr.5.1</option>
+<option valu="H.iah.1.1">H.iah.1.1</option>
+<option valu="H.iah.1.2">H.iah.1.2</option>
+<option valu="H.eh.1.1">H.eh.1.1</option>
+</select>
+</div>
+
+
+
+
+
+
+
+<div class="form-group" id="divBusNumber">
+
+  <label>Bus Number</label>
+  <input type="number" class="form-control" name="busNumber" required> 
+
+
+</div>
+<div class="form-group" id="cluster">
+  <label>Cluster Type: (Only Applicable for Hotel Shuttle)</label>
+  <select id="choice_criteria_id" class="form-control" name="clusterType">
+            <option value=""></option>
+            <option value="Medical Center">Medical Center</option>
+            <option value="Hobby">Hobby</option>
+            <option value="Upper Kirby">Upper Kirby</option>
+            <option value="WestChase">WestChase</option>
+            <option value="Energy Corridor">Energy Corridor</option>
+            <option value="Sugarland">Sugarland</option>
+            <option value="Galleria">Galleria</option>
+            <option value="N Houston">N Houston</option>
+            <option value="NW Houston">NW Houston</option>
+            <option value="IAH">IAH</option>
+            <option value="E Houston">E Houston</option>
+</select>
+</div>
+
+
+
+<!-- 
+Medical Center
+Hobby
+Upper Kirby
+WestChase
+Energy Corridor
+Sugarland
+Galleria
+N Houston
+NW Houston
+IAH
+E Houston
+--> 
+
+
+
+<!--
+function showHide() {
+  var selectedValue = document.getElementById("choice_criteria_id").value;
+  console.log(selectedValue);
+  document.getElementById("id_src_addr").style.display = (selectedValue == "source_ip") ? "inline" : "none";
+  document.getElementById("id_dst_addr").style.display = (selectedValue == "dest_ip") ? "inline" : "none";
+  document.getElementById("id_port").style.display = (selectedValue == "port") ? "inline" : "none";
+  document.getElementById("0").style.display = (selectedValue == "port_range") ? "inline" : "none";
+
+
+  document.getElementById("rn_id").style.display = (selectedValue == "RN") ? "inline" : "none";
+  document.getElementById("pv_id").style.display = (selectedValue == "PV") ? "inline" : "none";
+  document.getElementById("hotel_bus").style.display = (selectedValue == "Hotel_Bus") ? "inline" : "none";
+  document.getElementById("jk_shuttle").style.display = (selectedValue == "Jk_Shuttle") ? "inline" : "none";
+  document.getElementById("ada_id").style.display = (selectedValue == "ADA") ? "inline" : "none";
+}
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="form-group" id="originationType">
+   <label>Origination</label>
+  <input name="origination" type="text" placeholder="Origination" class="form-control" >
+  <br>
+  </div>
+
+    <div class="form-group" id="destinationType">
+   <label>Destination</label>
+  <input name="destination" type="text" placeholder="Destination" class="form-control" >
+  <br>
+  </div>
+  
+     <div class="form-group">
+   <label># of Jamati Members Picked Up</label>
+  <input name="numOfMembersPickedUp" type="number" placeholder="Enter the message recieved on Zello" class="form-control" required>
+  <br>
+  </div>
+
+  
+  <div class="form-group"> 
+    <label>Message Time Recieved</label>
+  <input name="messageTimeRecieved" type="time"  class="form-control" required>
+  <br>
+</div>
+      
+
+
+
+  <div class="form-group"> 
+
+    <label>Emergency</label>
+  <select name="emergencyType" class="form-control">
+  <option value=""></option>
+  <option value="Traffic">Traffic</option>
+  <option value="Accident">Accident</option>
+  <option value="Flat Tire">Flat Tire</option>
+  <option value="Medical">Medical</option>
+
+  </select>
+  <br>
+
+</div>
+
+
+   
+    <div class="form-group" id="hideTime"> 
+      <label>Load Time (Only Applicable to JK Shuttle - Leave blank if not applicable)</label>
+      <input name="loadTime" type="time"  class="form-control">
+
+      <label>Unload Time (Only Applicable to JK Shuttle - Leave blank if not applicable)</label>
+    <input name="unLoadTime" type="time"  class="form-control">
+    <br>
+  </div>
+
+
+<div class="form-group"> 
+  <label>Notes</label>
+  <input name="commentType" type="text" placeholder="Place your comments here" class="form-control">
+</div>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <button type="submit" id="clickme">Send</button> -->
+  <input type="submit" name="myButton" value="Submit" class="btn btn-success">
+  
+  <!--
+  <input type="reset" value="Reset Button" onclick="resetForm(this.form);" class="btn btn-danger">
+  -->
+
+  <input type="reset" value="Reset" class="btn btn-danger" onClick="window.location.reload()">
+   </div>
+
+</div>
+ </form>  
+
+<script
+              src="https://code.jquery.com/jquery-2.2.4.js"
+              integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+              crossorigin="anonymous"></script>
+
+<script>  
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxJaGEx7tXdUTh3H3yZeGsT417bQKtekoCeg__I-bAxv8pEpmeC/exec'  
+  const form = document.forms['contact']  
+  form.addEventListener('submit', e => {  
+   e.preventDefault()  
+   fetch(scriptURL, { method: 'POST', body: new FormData(form)})  
+    .then(response => console.log('Success!', response))  
+    .catch(error => console.error('Error!', error.message))  
+  })  
+
+  $( document ).ready(function() {
+    console.log( "ready!" );
+    document.getElementById("divBusNumber").style.display = "none";
+
+});
+
+   function checkForm(form) // Submit button clicked
+  {
+    //
+    // check form input values
+    //
+
+    form.myButton.disabled = true;
+    form.myButton.value = "Submitted..Please press the reset button...";
+    return true;
+  }
+
+  function resetForm(form) // Reset button clicked
+  {
+    form.myButton.disabled = false;
+    form.myButton.value = "Submit";
+  }
+
+// function showHideOptions(value)
+// {
+//   alert("Hello");
+//   var option = document.getElementById("optbusValue");
+//   if (option.value == "source_ip")
+//   {
+//     document.getElementById("divBusNumber").style.display = "none";
+//   }
+// } 
+
+//   function showDiv(elem)
+//   {
+//    if(elem.value == 'RN')
+//       document.getElementById('hidden_div').style.display = "block";
+//   }
+
+
+
+
+
+// var start = 1;
+// var end = 100;
+// var options = "";
+// for(var year = start ; year <=end; year++){
+//   options += "<option>"+ year +"</option>";
+// }
+// document.getElementById("year").innerHTML = options;
+function showHide() {
+  var selectedValue = document.getElementById("choice_criteria_id").value;
+  console.log(selectedValue);
+  document.getElementById("id_src_addr").style.display = (selectedValue == "source_ip") ? "inline" : "none";
+  // if(selectedValue != "id_src_addr")
+  //   document.getElementById("divBusNumber").style.display = "none";
+  // else
+  //   document.getElementById("divBusNumber").style.display = "block";
+
+  document.getElementById("divBusNumber").style.display = (selectedValue != "source_ip") ? "inline" : "none";
+  document.getElementById("cluster").style.display = (selectedValue == "source_ip") ? "block" : "none";
+  document.getElementById("destinationType").style.display = (selectedValue == "source_ip") ? "block" : "none";
+  document.getElementById("originationType").style.display = (selectedValue == "source_ip") ? "block" : "none";
+  //document.getElementByID("hideTime").style.display = (selectedValue != "jk_shuttle") ? "block" : "none"; 
+
+  var x = document.getElementById("hideTime");
+  if(selectedValue == "jk_shuttle")
+  {
+    if (x.style.display == "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+else
+{
+  x.style.display = "none";
+}
+
+
+
+}
+
+
+
+
+
+// function showHideJkShuttle(){
+
+//   var selectedValue = document.getElementByID("choice_criteria_id").value;
+//   console.log(selectedValue);
+//   alert('Hello');
+//   document.getElementByID("loadHide").style.display = (selectedValue != "jk_shuttle") ? "block" : "none"; 
+
+
+
+// }
+
+
+
+
+
+
+ </script> 
+
+
+</body>
+</html>
